@@ -55,7 +55,7 @@ async function ask(){
   finally{send.disabled=false;}
 }
 window.setJarvisMachine=function(machine){greet();current=machine; title.textContent='UNIVERSAL ENGINEER · '+machine.name; panel.classList.add('open'); add('assistant',`Product context loaded: ${machine.name} (${machine.model}). Ask me about documented operation, service, parts, electrical, pneumatic systems, or the manual.`);};
-document.getElementById('homeJarvis')?.addEventListener('click',()=>{greet();panel.classList.add('open')});
+document.getElementById('homeJarvis')?.addEventListener('click',()=>{greet();panel.classList.add('open');setTimeout(()=>input?.focus(),0)});
 greet();
 loadButton?.addEventListener('click',loadEngine);send?.addEventListener('click',ask);input?.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask();}});document.getElementById('jarvisClose')?.addEventListener('click',()=>panel.classList.remove('open'));
 
