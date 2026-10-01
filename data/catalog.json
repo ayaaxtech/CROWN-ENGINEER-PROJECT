@@ -1,0 +1,1248 @@
+[
+  {
+    "id": "compact-pre-glued-sleever",
+    "model": "S01",
+    "name": "Compact Preglued Sleever",
+    "category": "sleeving",
+    "source": "https://www.tfreemantle.com/products/compact-pre-glued-sleever",
+    "image": "assets/products/compact-pre-glued-sleever.webp",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 120 packs/min",
+    "description": "Compact preglued sleeving solution for watchstrap, band and 5-panel sleeves.",
+    "verified": true,
+    "model3d": {
+      "path": "models/compact-pre-glued-sleever.gltf",
+      "bin": "models/compact-pre-glued-sleever.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 8.75,
+        "width_m": 4.0,
+        "height_m": 3.88
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/compact-pre-glued-sleever-document-1.html",
+        "source": "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile",
+        "type": "html"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "top-load-carton-former",
+    "model": "TLF",
+    "name": "Top Load Carton Former",
+    "category": "cartoning",
+    "source": "https://www.tfreemantle.com/products/top-load-carton-former",
+    "image": "assets/products/top-load-carton-former.jpg",
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 40 trays/min",
+    "description": "PLC-controlled, water-washable carton former with servo drive and glue application.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/top-load-carton-former.gltf",
+      "bin": "models/top-load-carton-former.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 7,
+        "width_m": 3.2,
+        "height_m": 3.1
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/top-load-carton-former-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/T-Freemantle-PPMA-Flipbook-Final-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "tray-and-case-packer",
+    "model": "TCP",
+    "name": "Tray and Case Packer",
+    "category": "tray-case",
+    "source": "https://www.tfreemantle.com/products/tray-and-case-packer-fully-automatic-food-beverage",
+    "image": "assets/products/tray-and-case-packer.jpg",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/wp-content/uploads/2019/07/pdf-sample_0.pdf"
+    ],
+    "speed": "Application dependent",
+    "description": "2-in-1 erector and packer for open trays and enclosed shelf-ready cases.",
+    "verified": true,
+    "model3d": {
+      "path": "models/tray-and-case-packer.gltf",
+      "bin": "models/tray-and-case-packer.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 8.05,
+        "width_m": 3.68,
+        "height_m": 3.56
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/tray-and-case-packer-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2019/07/pdf-sample_0.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "semi-automatic-beverage-multipack-cartoner",
+    "model": "BMC-S",
+    "name": "Semi Automatic Beverage Multipack Cartoner",
+    "category": "beverage",
+    "source": "https://www.tfreemantle.com/products/semi-automatic-beverage-multipack-cartoner-bottles-cans",
+    "image": "assets/products/semi-automatic-beverage-multipack-cartoner.webp",
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 40 cartons/min",
+    "description": "Open-frame beverage multipack cartoner for cans and bottles in 4\u201312 pack formats.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/semi-automatic-beverage-multipack-cartoner.gltf",
+      "bin": "models/semi-automatic-beverage-multipack-cartoner.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 9.45,
+        "width_m": 4.32,
+        "height_m": 4.19
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/semi-automatic-beverage-multipack-cartoner-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/T-Freemantle-PPMA-Flipbook-Final-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "automatic-beverage-multipack-cartoner",
+    "model": "BMC-A",
+    "name": "Automatic Beverage Multipack Cartoner",
+    "category": "beverage",
+    "source": "https://www.tfreemantle.com/products/beverage-multipack-machine-automatic-bottles-cans",
+    "image": "assets/products/automatic-beverage-multipack-cartoner.webp",
+    "manuals": [],
+    "speed": "Up to 30,000 products/hr",
+    "description": "Fully automatic beverage multipack cartoner with clear guarding and PLC/HMI control.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/automatic-beverage-multipack-cartoner.gltf",
+      "bin": "models/automatic-beverage-multipack-cartoner.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 9.45,
+        "width_m": 4.32,
+        "height_m": 4.19
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "semi-automatic-cartoner",
+    "model": "S07 / S07S",
+    "name": "Semi Automatic Cartoner",
+    "category": "cartoning",
+    "source": "https://www.tfreemantle.com/products/semi-automatic-cartoner",
+    "image": "assets/products/semi-automatic-cartoner.jpg",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/s07s-semi-automatic-cartoner"
+    ],
+    "speed": "Up to 80 packs/min",
+    "description": "Operator-loaded cartoner that erects, folds and seals cartons across a wide size range.",
+    "verified": true,
+    "model3d": {
+      "path": "models/semi-automatic-cartoner.gltf",
+      "bin": "models/semi-automatic-cartoner.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 7,
+        "width_m": 3.2,
+        "height_m": 3.1
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/semi-automatic-cartoner-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/S07-Semi-Manual.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "240V single-phase",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "continuous-carton-sealer",
+    "model": "CCS",
+    "name": "Continuous Carton Sealer",
+    "category": "sealing",
+    "source": "https://www.tfreemantle.com/products/continuous-carton-sealer",
+    "image": "assets/products/continuous-carton-sealer.webp",
+    "manuals": [],
+    "speed": "Up to 60 cartons/min",
+    "description": "On-demand continuous sealer for manually filled cartons and tamper-evident glue closure.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/continuous-carton-sealer.gltf",
+      "bin": "models/continuous-carton-sealer.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 5.6,
+        "width_m": 2.56,
+        "height_m": 2.48
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "fully-automatic-cartoner",
+    "model": "FAC",
+    "name": "Fully Automatic End-Load Cartoner",
+    "category": "cartoning",
+    "source": "https://www.tfreemantle.com/products/fully-automatic-cartoner",
+    "image": "assets/products/fully-automatic-cartoner.webp",
+    "manuals": [],
+    "speed": "Up to 150 packs/min",
+    "description": "High-speed end-load cartoner for automatic product loading, folding and glue sealing.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/fully-automatic-cartoner.gltf",
+      "bin": "models/fully-automatic-cartoner.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 7,
+        "width_m": 3.2,
+        "height_m": 3.1
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "header-card-applicator",
+    "model": "HCA",
+    "name": "Header Card Applicator",
+    "category": "carding",
+    "source": "https://www.tfreemantle.com/products/header-card-applicator",
+    "image": "assets/products/header-card-applicator.svg",
+    "manuals": [],
+    "speed": "Up to 60 packs/min",
+    "description": "Applies permanent or peelable header cards to flow wraps, pouches, bags and sachets.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/header-card-applicator.gltf",
+      "bin": "models/header-card-applicator.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 5.25,
+        "width_m": 2.4,
+        "height_m": 2.33
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "preglued-sleever",
+    "model": "PGS",
+    "name": "Preglued Sleever",
+    "category": "sleeving",
+    "source": "https://www.tfreemantle.com/products/preglued-sleever-fully-automatic",
+    "image": "assets/products/preglued-sleever.webp",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 120 packs/min",
+    "description": "Fully automatic patented sleeving machine for ready meals, trays and pots.",
+    "verified": true,
+    "model3d": {
+      "path": "models/preglued-sleever.gltf",
+      "bin": "models/preglued-sleever.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 8.75,
+        "width_m": 4.0,
+        "height_m": 3.88
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/preglued-sleever-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/T-Freemantle-PPMA-Flipbook-Final-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "three-flap-closer",
+    "model": "TFC",
+    "name": "Three Flap Closer",
+    "category": "cartoning",
+    "source": "https://www.tfreemantle.com/products/three-flap-closer",
+    "image": "assets/products/three-flap-closer.jpg",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 85 packs/min",
+    "description": "Water-washable top-load closer that folds, glues and seals three carton lid flaps.",
+    "verified": true,
+    "model3d": {
+      "path": "models/three-flap-closer.gltf",
+      "bin": "models/three-flap-closer.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 7,
+        "width_m": 3.2,
+        "height_m": 3.1
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/three-flap-closer-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/T-Freemantle-PPMA-Flipbook-Final-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "top-load-carton-packaging-line",
+    "model": "TL-LINE",
+    "name": "Top Load Carton Packaging Line",
+    "category": "line",
+    "source": "https://www.tfreemantle.com/products/top-load-carton-packaging-line",
+    "image": "assets/products/top-load-carton-packaging-line.webp",
+    "manuals": [
+      "https://www.tfreemantle.com/wp-content/uploads/2024/11/T.-Freemantle-Limited-Guide-to-Carton-Manufacture.pdf"
+    ],
+    "speed": "Up to 80 cartons/min",
+    "description": "Modular top-load line with former, loading area and carton closer/sealer.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/top-load-carton-packaging-line.gltf",
+      "bin": "models/top-load-carton-packaging-line.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Module 1",
+        "Module 2",
+        "Module 3",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 12.6,
+        "width_m": 5.76,
+        "height_m": 5.58
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/top-load-carton-packaging-line-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2024/11/T.-Freemantle-Limited-Guide-to-Carton-Manufacture.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "wraparound-sleever",
+    "model": "WAS",
+    "name": "Wraparound Sleever",
+    "category": "sleeving",
+    "source": "https://www.tfreemantle.com/products/wraparound-sleever",
+    "image": "assets/products/wraparound-sleever.jpg",
+    "imageUrl": null,
+    "manuals": [
+      "https://www.tfreemantle.com/wp-content/uploads/2018/02/Wraparound-Sleever-Technical-Details_T-Freemantle.pdf"
+    ],
+    "speed": "Up to 150 products/min",
+    "description": "Open-frame wraparound sleeving system for chilled food, dairy and meat products.",
+    "verified": true,
+    "model3d": {
+      "path": "models/wraparound-sleever.gltf",
+      "bin": "models/wraparound-sleever.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 8.75,
+        "width_m": 4.0,
+        "height_m": 3.88
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/wraparound-sleever-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2018/02/Wraparound-Sleever-Technical-Details_T-Freemantle.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "tray-erector",
+    "model": "TE",
+    "name": "Tray Former",
+    "category": "tray-case",
+    "source": "https://www.tfreemantle.com/products/tray-erector",
+    "image": "assets/products/tray-erector.jpg",
+    "manuals": [
+      "https://www.tfreemantle.com/flipbook/t-freemantle-flipbook-company-profile"
+    ],
+    "speed": "Up to 40 trays/min",
+    "description": "PLC-controlled tray former for transit trays, shelf display trays and pot-holder trays.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/tray-erector.gltf",
+      "bin": "models/tray-erector.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 8.05,
+        "width_m": 3.68,
+        "height_m": 3.56
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/tray-erector-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/T-Freemantle-PPMA-Flipbook-Final-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  },
+  {
+    "id": "s03-two-flap-sealer",
+    "model": "S03",
+    "name": "Two Flap Sealer",
+    "category": "sealing",
+    "source": "https://www.tfreemantle.com/flipbook/s03-two-flap-sealer-manual",
+    "image": "assets/products/s03-two-flap-sealer.svg",
+    "manuals": [
+      "https://www.tfreemantle.com/wp-content/uploads/2025/08/S03-Manual.pdf"
+    ],
+    "speed": "Manual / semi-auto",
+    "description": "Official S03 two-flap sealer manual record. Product image is not exposed by the public page.",
+    "verified": true,
+    "imageUrl": null,
+    "model3d": {
+      "path": "models/s03-two-flap-sealer.gltf",
+      "bin": "models/s03-two-flap-sealer.bin",
+      "components": [
+        "Base frame",
+        "Infeed conveyor",
+        "Main conveyor",
+        "Outfeed conveyor",
+        "Machine envelope",
+        "Electrical cabinet",
+        "Control panel",
+        "Pneumatic manifold",
+        "Service door A",
+        "Service door B",
+        "Product tooling",
+        "Pneumatic cylinder 1",
+        "Pneumatic cylinder 2"
+      ],
+      "dimensions": {
+        "length_m": 5.6,
+        "width_m": 2.56,
+        "height_m": 2.48
+      },
+      "accuracy": "conceptual visual proportions; dimensions and internal geometry are not verified"
+    },
+    "documents": [
+      {
+        "path": "assets/documents/s03-two-flap-sealer-document-1.pdf",
+        "source": "https://www.tfreemantle.com/wp-content/uploads/2025/08/S03-Manual.pdf",
+        "type": "pdf"
+      }
+    ],
+    "assetStatus": "Conceptual 3D model; not dimensionally verified",
+    "installationProfile": {
+      "status": "conceptual reference profile \u2014 verify against the machine nameplate and approved manual before installation",
+      "electrical": {
+        "supply": "Confirm from machine nameplate",
+        "isolator": "Local lockable isolator required",
+        "controls": "PLC/HMI and safety circuit reference; final ratings must be verified",
+        "earthing": "Protective earth and equipotential bonding required"
+      },
+      "pneumatic": {
+        "supply": "Clean, dry regulated compressed air; confirm pressure/flow in approved manual",
+        "connection": "Provide lockable air isolation and drain point",
+        "components": "Conceptual manifold, cylinders and service points shown in 3D model"
+      },
+      "mechanical": {
+        "floor": "Level, load-rated floor with service clearance around all sides",
+        "services": "Infeed/outfeed height and product interface must be confirmed on site",
+        "guards": "Do not operate with guards or safety interlocks bypassed"
+      },
+      "commissioning": [
+        "Verify serial/model against nameplate",
+        "Confirm electrical and pneumatic isolation",
+        "Level and align conveyors",
+        "Test guards, E-stops and interlocks",
+        "Run dry cycle before product trial"
+      ]
+    },
+    "partsProfile": {
+      "status": "conceptual component index \u2014 not a verified bill of materials",
+      "groups": [
+        "Frame and guarding",
+        "Infeed / main / outfeed conveyor",
+        "Electrical cabinet and control panel",
+        "Pneumatic manifold and cylinders",
+        "Product tooling",
+        "Service doors and access hardware"
+      ]
+    }
+  }
+]
