@@ -43,14 +43,18 @@ async function jarvis(req,res){
   if(!r.ok)return json(res,{error:'OpenAI-compatible request failed'},502);const j=await r.json();return json(res,{text:j.choices?.[0]?.message?.content||'No response generated.',provider:'OpenAI-compatible'});
 }
 async function identify(req,res){
-  const {image,text=''}=await body(req);const g=process.env.GEMINI_API_KEY;const prompt=`Identify visible industrial machines/components from this image. OCR text: ${text}. Return JSON only with query and results. Each result needs title, confidence low/medium/high, description, reason, and url if known. Never claim an exact part number from appearance alone.`;
+  const {image,text='',catalog=[]}=await body(req);const g=process.env.GEMINI_API_KEY;
+  const imageValue=String(image||'');const dataUrl=imageValue.match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,([A-Za-z0-9+/=\s]+)$/);const mimeType=dataUrl?.[1]||'image/jpeg';const imageData=dataUrl?.[2]||imageValue.replace(/^data:[^,]+,/,'');
+  if(!imageData)return json(res,{error:'No image data was received.',results:[]},400);
+  const knownCatalog=(Array.isArray(catalog)?catalog:[]).slice(0,40).map(x=>({id:String(x.id||''),model:String(x.model||''),name:String(x.name||'')}));
+  const prompt=`Inspect this industrial nameplate or product image. OCR text already extracted by the browser: ${String(text).slice(0,5000)}. Local catalog candidates (use only if a model code is clearly visible in the image or OCR): ${JSON.stringify(knownCatalog)}. Return JSON only with these fields: manufacturer, modelCode, serialNumber, plateText (your best transcription of visible plate text), confidence (high/medium/low), evidence (quote the exact visible model-code text supporting a match), catalogMatch (a catalog id or model code only when the exact code is legible; otherwise null), query, and results (array of title, confidence, description, reason, url if known). Do not infer a serial number, exact model, part number, internal component location, or repair procedure from appearance alone. If uncertain, use null/empty fields and give only cautious candidates.`;
   if(g){
     const models=await geminiModels(g);let last='';
     for(const model of models){try{
-      const r=await geminiGenerate(g,model,{contents:[{role:'user',parts:[{text:prompt},{inline_data:{mime_type:'image/jpeg',data:String(image).split(',')[1]||image}}]}],generationConfig:{temperature:.1,maxOutputTokens:1100}});const e=await r.json().catch(()=>({}));
+      const r=await geminiGenerate(g,model,{contents:[{role:'user',parts:[{text:prompt},{inline_data:{mime_type: mimeType, data:imageData}}]}],generationConfig:{temperature:.1,maxOutputTokens:1600}});const e=await r.json().catch(()=>({}));
       if(!r.ok){last=e.error?.message||`HTTP ${r.status}`;continue}
-      let raw=e.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('')||'{}';raw=raw.replace(/^```json\s*|\s*```$/g,'');
-      try{return json(res,{...JSON.parse(raw),source:'Gemini '+model})}catch{return json(res,{query:text,results:[{title:'Gemini visual assessment',confidence:'low',description:raw,reason:'Review the image and nameplate'}],source:'Gemini '+model})}
+      let raw=e.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('')||'{}';raw=raw.replace(/^```(?:json)?\s*|\s*```$/gi,'').trim();
+      try{const parsed=JSON.parse(raw);return json(res,{manufacturer:parsed.manufacturer||'',modelCode:parsed.modelCode||'',serialNumber:parsed.serialNumber||'',plateText:parsed.plateText||'',confidence:['high','medium','low'].includes(String(parsed.confidence||'').toLowerCase())?String(parsed.confidence).toLowerCase():'low',evidence:parsed.evidence||'',catalogMatch:parsed.catalogMatch||null,query:parsed.query||text,results:Array.isArray(parsed.results)?parsed.results:[],source:'Gemini '+model})}catch{return json(res,{query:text,confidence:'low',results:[{title:'Gemini visual assessment',confidence:'low',description:raw,reason:'Review the image and nameplate'}],source:'Gemini '+model})}
     }catch(err){last=err.message}}
     return json(res,{error:'Gemini visual request failed',detail:last,modelsTried:models,results:[]},502);
   }
