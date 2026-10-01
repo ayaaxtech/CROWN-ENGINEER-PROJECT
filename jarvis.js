@@ -12,8 +12,8 @@ const loadButton = document.getElementById('jarvisLoad');
 const status = document.getElementById('jarvisStatus');
 const title = document.getElementById('jarvisTitle');
 function setStatus(text){ if(status) status.textContent=text; }
-function greet(){ if(introShown)return; introShown=true; const text='Hi, I am your universal Engineer, what you working on ?'; add('assistant',text); if(window.voiceReplies) speak(text); }
-function add(role,text){ const el=document.createElement('div'); el.className='jarvis-msg '+role; el.textContent=text; output.appendChild(el); output.scrollTop=output.scrollHeight; }
+function greet(){ if(introShown)return; introShown=true; const text='Hi, I am your universal Engineer, what you working on ?'; add('assistant',text); }
+function add(role,text){ const el=document.createElement('div'); el.className='jarvis-msg '+role; el.textContent=text; output.appendChild(el); output.scrollTop=output.scrollHeight; if(role==='assistant'&&window.voiceReplies) speak(text); }
 function contextFor(machine){
   if(!machine) return 'No machine has been selected yet.';
   const docs=(machine.documents||[]).map(x=>x.path).join('\n') || (machine.manuals||[]).join('\n');
@@ -61,8 +61,19 @@ loadButton?.addEventListener('click',loadEngine);send?.addEventListener('click',
 
 // Voice interface: browser speech recognition for input and speech synthesis for replies.
 let voiceRecognition=null, voiceOn=false;
-function speak(text){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.98;u.pitch=1;speechSynthesis.speak(u)}}
+function speak(text){
+  const synth=window.speechSynthesis,Utterance=window.SpeechSynthesisUtterance;
+  if(!synth||!Utterance){setStatus('Speech output is unavailable in this browser · replies remain on screen');return}
+  try{
+    synth.cancel();
+    const utterance=new Utterance(text);utterance.rate=.98;utterance.pitch=1;
+    const voices=synth.getVoices?.()||[];
+    const voice=voices.find(v=>v.lang?.toLowerCase()==='en-gb')||voices.find(v=>v.lang?.toLowerCase().startsWith('en-'));
+    if(voice)utterance.voice=voice;
+    utterance.onerror=e=>{console.warn('Jarvis speech output failed',e);if(window.voiceReplies)setStatus('Speech playback was blocked · read the text reply and try clicking Speak replies again')};
+    synth.speak(utterance);
+  }catch(e){console.warn('Jarvis speech output unavailable',e);setStatus('Speech output is unavailable · replies remain on screen')}
+}
 function voiceErrorMessage(code){const messages={'not-allowed':'Microphone permission was denied. Allow microphone access for crown-engineers.onrender.com in the browser address-bar settings, then press Talk again.','service-not-allowed':'This browser blocked its speech service. Use the latest Chrome or Edge, or type your question and press Send.','audio-capture':'No microphone was found or it is already in use by another application. Check the microphone and try again.','network':'Browser speech recognition could not reach its speech service. Check the connection, or type your question and press Send.','no-speech':'No speech was detected. Press Talk, wait for “Listening…”, then speak clearly.','aborted':'Voice capture was cancelled. Press Talk again when ready.'};return messages[code]||`Voice input stopped (${code||'unknown browser error'}). Use Chrome or Edge with microphone permission, or type your question and press Send.`}
 function toggleVoice(){const Speech=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Speech){setStatus('Voice input is not supported here · type your question and press Send');add('assistant','This browser does not provide speech recognition. No AI model change is needed: use Chrome or Edge for voice, or type your question and press Send.');return}if(voiceOn){voiceRecognition?.stop();voiceOn=false;voiceButton.textContent='🎙 Talk';return}try{voiceRecognition=new Speech();voiceRecognition.lang='en-GB';voiceRecognition.continuous=false;voiceRecognition.interimResults=false;voiceRecognition.onstart=()=>{voiceOn=true;voiceButton.textContent='Listening…';setStatus('Listening… speak now')};voiceRecognition.onresult=e=>{const transcript=e.results?.[0]?.[0]?.transcript?.trim();if(transcript){input.value=transcript;ask()}else setStatus('No speech detected · press Talk and try again')};voiceRecognition.onerror=e=>{voiceOn=false;voiceButton.textContent='🎙 Talk';const message=voiceErrorMessage(e.error);setStatus(message);add('assistant',message)};voiceRecognition.onend=()=>{voiceOn=false;voiceButton.textContent='🎙 Talk'};voiceRecognition.start()}catch(e){voiceOn=false;voiceButton.textContent='🎙 Talk';const message=voiceErrorMessage(e.name||'start-failed');setStatus(message);add('assistant',message)}}
 const voiceButton=document.getElementById('jarvisVoice');voiceButton?.addEventListener('click',toggleVoice);
-const oldAdd=add;add=function(role,text){oldAdd(role,text);if(role==='assistant'&&window.voiceReplies) speak(text)};
