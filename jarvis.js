@@ -41,8 +41,7 @@ async function loadEngine(){
 async function remoteAsk(question){
   try{
     const reply=await fetch('/api/jarvis',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({system:`You are Jarvis, a cautious packaging-machinery service assistant. Use the selected machine context below and general safety principles. Never invent part numbers, dimensions, wiring terminals, pressure, torque, fault codes or service steps. If documentation is missing, say so. For electrical/pneumatic/mechanical work, include lockout/tagout and qualified-person warnings. Keep responses practical and structured.\n\n${contextFor(current)}`,messages:[...messages.slice(-8),{role:'user',content:question}]})});
-    if(!reply.ok)return null;
-    const data=await reply.json();return data.text?data:null;
+    const data=await reply.json().catch(()=>({}));if(!reply.ok){setStatus(data.detail||data.error||`Remote provider returned HTTP ${reply.status}`);return {error:data.detail||data.error||`Remote provider returned HTTP ${reply.status}`};}return data.text?data:null;
   }catch(e){console.info('Remote Jarvis unavailable; using local fallback',e);return null}
 }
 async function ask(){
@@ -50,7 +49,8 @@ async function ask(){
   input.value=''; add('user',question); send.disabled=true; setStatus('Connecting to Jarvis…');
   try{
     const remote=await remoteAsk(question);
-    if(remote){add('assistant',remote.text);messages.push({role:'user',content:question},{role:'assistant',content:remote.text});setStatus(`Jarvis ready · ${remote.provider||'secure server model'}`);return;}
+    if(remote?.text){add('assistant',remote.text);messages.push({role:'user',content:question},{role:'assistant',content:remote.text});setStatus(`Jarvis ready · ${remote.provider||'secure server model'}`);return;}
+    if(remote?.error){add('assistant',`The secure AI provider returned an error: ${remote.error}. Check GEMINI_API_KEY and GEMINI_MODEL in Render, then redeploy.`);send.disabled=false;return;}
     if(!engine){add('assistant','The secure Jarvis provider is unavailable right now. You can press “Load free local AI model” to try the browser model manually, or continue using the source records.');setStatus('Remote provider unavailable · local model not started automatically');return;}
     setStatus('Jarvis is thinking locally…');
     const system=`You are Jarvis, a cautious packaging-machinery service assistant inside CROWN ENGINEERS LTD SYSTEM. Use only the selected product context below and general safety principles. Never invent a part number, dimension, wiring terminal, pressure, torque, fault code, or service step. If the approved documents do not provide an answer, say that it is not documented and recommend checking the approved manual or a qualified engineer. For maintenance or electrical/pneumatic work, provide a clear safety warning and lockout/tagout reminder before steps. Keep answers structured and practical.\n\n${contextFor(current)}`;
