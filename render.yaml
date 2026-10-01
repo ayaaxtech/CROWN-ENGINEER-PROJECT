@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: universal-engineer-platform
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash-lite
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_API_BASE
+        sync: false
+      - key: JARVIS_MODEL
+        value: gpt-4o-mini

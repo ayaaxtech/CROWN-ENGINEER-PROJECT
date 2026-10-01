@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+[functions]
+  node_bundler = "esbuild"
+[[redirects]]
+  from = "/api/global-identify"
+  to = "/.netlify/functions/global-identify"
+  status = 200
+
+[[redirects]]
+  from = "/api/jarvis"
+  to = "/.netlify/functions/jarvis"
+  status = 200
+
+[[redirects]]
+  from = "/api/global-search"
+  to = "/.netlify/functions/global-search"
+  status = 200
