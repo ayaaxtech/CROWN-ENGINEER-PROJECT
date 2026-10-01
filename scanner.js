@@ -5,13 +5,18 @@ let scannerMode = 'global';
 let lastScanFile = null;
 let previewUrl = null;
 let lastScanText = '';
+let lastOcrConfidence = null;
+let cameraMeasureTimer = null;
+let barcodeDetector = null;
+let lastBarcode = '';
 
 const scan = id => document.getElementById(id);
 const catalog = () => Array.isArray(window.machines) ? window.machines : [];
 
-function openScanner() {
+function openScanner({ autoStart = true } = {}) {
   scan('scanner')?.classList.add('open');
-  if (scan('scanStatus')) scan('scanStatus').textContent = 'Camera paused. Start the camera or upload an image.';
+  if (scan('scanStatus')) scan('scanStatus').textContent = autoStart ? 'Requesting camera access…' : 'Camera is off. Upload a plate image or start the camera.';
+  if (autoStart) window.setTimeout(() => { if (scan('scanner')?.classList.contains('open')) startCamera(); }, 0);
 }
 
 function closeScanner() {
@@ -30,6 +35,9 @@ function resetScanFields() {
   if (scan('scanOpen')) scan('scanOpen').disabled = true;
   window.scannedMachine = null;
   lastScanText = '';
+  lastOcrConfidence = null;
+  if (scan('scanConfidence')) scan('scanConfidence').textContent = 'OCR confidence: unknown';
+  if (scan('scanMetrics')) scan('scanMetrics').textContent = 'Live measurement: camera off';
 }
 
 async function startCamera() {
@@ -45,13 +53,16 @@ async function startCamera() {
     await scan('scanVideo').play();
     scan('scanCameraHint').style.display = 'none';
     scan('scanStatus').textContent = 'Point at the full plate. Keep model and serial text in focus.';
+    startCameraTelemetry();
   } catch (error) {
     console.warn('Camera unavailable', error);
-    scan('scanStatus').textContent = 'Camera unavailable or permission denied. Use Upload image instead.';
+    stopCameraTelemetry();
+    scan('scanStatus').textContent = 'Camera unavailable or permission denied. Use Upload image instead. No geometry can be measured without camera access.';
   }
 }
 
 function stopCamera() {
+  stopCameraTelemetry();
   if (scannerStream) {
     scannerStream.getTracks().forEach(track => track.stop());
     scannerStream = null;
@@ -89,6 +100,39 @@ function capturePlate() {
     lastScanFile = blob;
     runScan(blob, { newImage: true });
   }, 'image/jpeg', 0.94);
+}
+
+
+function startCameraTelemetry() {
+  stopCameraTelemetry();
+  const video = scan('scanVideo');
+  if (!video) return;
+  const canvas = document.createElement('canvas'); canvas.width = 320; canvas.height = 240;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  try { barcodeDetector = 'BarcodeDetector' in window ? new BarcodeDetector() : null; } catch { barcodeDetector = null; }
+  cameraMeasureTimer = window.setInterval(async () => {
+    if (!video.videoWidth || video.readyState < 2) return;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let sum = 0, edge = 0, previous = null;
+    for (let i = 0; i < pixels.length; i += 4) {
+      const gray = (pixels[i] * 0.299) + (pixels[i + 1] * 0.587) + (pixels[i + 2] * 0.114); sum += gray;
+      if (previous !== null && Math.abs(gray - previous) > 32) edge++; previous = gray;
+    }
+    const samples = pixels.length / 4;
+    const brightness = Math.round(sum / samples);
+    const edgeDensity = Math.round((edge / samples) * 100);
+    let code = '';
+    if (barcodeDetector) { try { const found = await barcodeDetector.detect(video); code = found[0]?.rawValue || ''; if (code) lastBarcode = code.slice(0, 120); } catch {} }
+    const note = code || lastBarcode ? ` · code detected: ${code || lastBarcode}` : '';
+    if (scan('scanMetrics')) scan('scanMetrics').textContent = `Live image telemetry: ${video.videoWidth}×${video.videoHeight}px · brightness ${brightness}/255 · edge density ${edgeDensity}%${note} · physical scale unavailable`;
+  }, 700);
+}
+function stopCameraTelemetry() { if (cameraMeasureTimer) window.clearInterval(cameraMeasureTimer); cameraMeasureTimer = null; barcodeDetector = null; lastBarcode = ''; }
+function setOcrConfidence(value) {
+  const confidence = Number(value);
+  lastOcrConfidence = Number.isFinite(confidence) ? Math.max(0, Math.min(100, confidence)) : null;
+  if (scan('scanConfidence')) scan('scanConfidence').textContent = `OCR confidence: ${lastOcrConfidence === null ? 'unknown' : `${Math.round(lastOcrConfidence)}%`} · machine match remains unverified until an exact catalog code is found`;
 }
 
 function setMode(mode) {
@@ -188,6 +232,8 @@ function matchPlate(text, { autoView = false } = {}) {
 
 async function runScan(file, { newImage = false } = {}) {
   if (!file) return;
+  if (!String(file.type || '').startsWith('image/')) { scan('scanStatus').textContent = 'Unsupported file. Choose a JPEG, PNG, WebP, or other browser-readable image.'; return; }
+  if (file.size > 5 * 1024 * 1024) { scan('scanStatus').textContent = 'Image is too large. Choose an image under 5 MB.'; return; }
   if (scannerBusy) {
     scan('scanStatus').textContent = 'A scan is already processing…';
     return;
@@ -214,6 +260,7 @@ async function runScan(file, { newImage = false } = {}) {
       });
     }
     const { data } = await scannerWorker.recognize(file);
+    setOcrConfidence(data?.confidence);
     const text = String(data?.text || '').trim();
     lastScanText = text;
     if (scan('scanText')) scan('scanText').value = text;
@@ -242,7 +289,7 @@ async function runScan(file, { newImage = false } = {}) {
 }
 
 async function runGlobalResearch(file, text, parsed) {
-  scan('scanStatus').textContent = 'No exact local model code yet. Asking visual AI for a cautious candidate…';
+  scan('scanStatus').textContent = 'No exact local model code yet. Requesting a cautious server-side assessment…';
   let result = null;
   let visualError = '';
   try {
@@ -280,12 +327,9 @@ async function runGlobalResearch(file, text, parsed) {
     const claimFits = !claimed || claimed === match?.entry?.id || claimed === match?.entry?.model || claimed === match?.code;
     if (match && confidence === 'high' && evidenceMatch?.entry?.id === match.entry.id && claimFits) {
       aiCandidate = match.entry;
-      const aiParsed = { manufacturer, model: modelCode, serial, matchedCode: match.code };
-      await activateCatalogRecord(aiCandidate, aiParsed, text, {
-        source: 'Visual AI; code and evidence returned for verification',
-        candidate: true,
-        autoView: true
-      });
+      scan('scanDetected').textContent = `CANDIDATE / UNVERIFIED — server assessment suggests ${match.entry.model}; verify the physical nameplate before opening the persisted record.`;
+      scan('scanDetected').dataset.good = 'candidate';
+      // A visual-AI suggestion is never treated as a verified lookup or opened automatically.
     }
   }
 
@@ -304,7 +348,7 @@ async function runGlobalResearch(file, text, parsed) {
   renderGlobalResults([...visualItems, ...publicResults], visualError ? `Visual AI unavailable: ${visualError}` : 'AI/web results are candidates only; verify the nameplate and approved manual.');
 
   if (aiCandidate) {
-    scan('scanStatus').textContent = 'Visual AI suggested a catalog model and loaded its conceptual 3D candidate. Verify the model code on the physical plate before service.';
+    scan('scanStatus').textContent = 'Visual AI returned a candidate only. No persisted machine record was opened; verify the exact code on the physical plate.';
   } else if (result) {
     scan('scanDetected').textContent = 'OCR captured the plate. Visual AI returned candidates, not an exact catalog match.';
     scan('scanDetected').dataset.good = 'candidate';
@@ -415,7 +459,7 @@ function bindScanner() {
     } else {
       window.scannedMachine = null;
       if (scan('scanOpen')) scan('scanOpen').disabled = true;
-      scan('scanDetected').textContent = 'Model entered; no exact local catalog code match.';
+      scan('scanDetected').textContent = 'UNKNOWN / UNVERIFIED — model text does not exactly match a persisted catalog record.';
     }
   });
   scan('modeLocal').addEventListener('click', () => setMode('local'));

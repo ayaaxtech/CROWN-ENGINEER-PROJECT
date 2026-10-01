@@ -33,9 +33,9 @@ Product images and accessible public documents are copied into `assets/` for loc
 
 ## Automatic machine-plate scanner
 
-Use **Scan machine plate** to start the rear camera on a phone/tablet or upload a plate photo. The website runs a bundled English OCR runtime in the browser, extracts the plate text, detects supported model codes such as S07, captures serial/date/voltage text in the readout, and opens the matching local machine record. The record then loads its conceptual GLTF model, local image, available local documents, installation/electrical/pneumatic reference profile, parts groups and machine-specific Jarvis context.
+Use **Scan machine plate** to start the rear camera on a phone/tablet or upload a plate photo. The website runs a bundled English OCR runtime in the browser, extracts the plate text and OCR confidence, captures serial/date/voltage text in the readout, and opens a local machine record only after an exact persisted catalog code match. Otherwise the UI remains explicitly UNKNOWN / UNVERIFIED. The record then loads its conceptual GLTF model, local image, available local documents, installation/electrical/pneumatic reference profile, parts groups and machine-specific Jarvis context.
 
-Camera access requires HTTPS (or localhost) and is only requested after the user presses **Start camera**. OCR and model recognition are reference assistance, not a substitute for verifying the physical nameplate, approved electrical drawings, pneumatic requirements, risk assessment or manufacturer documentation.
+Camera access requires HTTPS (or localhost). A requested camera scan starts the camera automatically; upload mode does not request camera permission. Live telemetry reports frame dimensions, brightness, edge density, and optional barcode data, but physical measurement remains unavailable without calibration, scale, and supported device APIs. OCR and model recognition are reference assistance, not a substitute for verifying the physical nameplate, approved electrical drawings, pneumatic requirements, risk assessment or manufacturer documentation.
 
 ## Scan-first global identification
 
